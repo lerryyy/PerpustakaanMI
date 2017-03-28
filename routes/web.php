@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::resource('admin/buku', 'BukuController');
+Route::resource('admin/kategori', 'KategoriController');
