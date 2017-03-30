@@ -59,10 +59,10 @@
         {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('kategori_id') ? 'has-error' : ''}}">
-    {!! Form::label('kategori_id', 'Kategori Id', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('kategori_id', 'kategori', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::number('kategori_id', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('kategori_id', '<p class="help-block">:message</p>') !!}
+        {!! Form::select('kategori_id',$kategori, null, ['class' => 'form-control']) !!}
+        {!! $errors->first('kategori_id',$kategori, '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

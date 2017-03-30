@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Buku;
+use App\Kategori;
 use Illuminate\Http\Request;
 use Session;
 
@@ -31,7 +32,9 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('admin.buku.create');
+        $kategori = Kategori::pluck('nama','id');
+
+        return view('admin.buku.create', compact('kategori'));
     }
 
     /**
@@ -77,8 +80,9 @@ class BukuController extends Controller
     public function edit($id)
     {
         $buku = Buku::findOrFail($id);
+        $kategori = Kategori::pluck('nama','id');
 
-        return view('admin.buku.edit', compact('buku'));
+        return view('admin.buku.edit', compact('buku','kategori'));
     }
 
     /**
