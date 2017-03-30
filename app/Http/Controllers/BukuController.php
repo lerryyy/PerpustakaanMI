@@ -19,8 +19,10 @@ class BukuController extends Controller
      */
     public function index(Request $request)
     {
-        $buku = Buku::paginate(25);
-
+        $buku = Buku::where('judul_buku','LIKE','%'.(isset($request->search)?$request->search:'').'%')
+                ->orwhere('penulis','LIKE','%'.(isset($request->search)?$request->search:'').'%')
+                ->orwhere('penerbit','LIKE','%'.(isset($request->search)?$request->search:'').'%')
+                ->paginate(25);
 
         return view('admin.buku.index', compact('buku'));
     }

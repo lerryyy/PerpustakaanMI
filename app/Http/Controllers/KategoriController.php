@@ -18,9 +18,8 @@ class KategoriController extends Controller
      */
     public function index(Request $request)
     {
-        $kategori = Kategori::paginate(25);
-
-
+        $kategori = Kategori::where('nama','LIKE','%'.(isset($request->search)?$request->search:'').'%')
+                ->paginate(25);
        
         return view('admin.kategori.index', compact('kategori'));
     }
