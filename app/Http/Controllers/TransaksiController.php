@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Kategori;
+use App\Transaksi;
 use Illuminate\Http\Request;
 use Session;
 
-class KategoriController extends Controller
+class TransaksiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class KategoriController extends Controller
      */
     public function index(Request $request)
     {
-        $kategori = Kategori::where('nama','LIKE','%'.(isset($request->search)?$request->search:'').'%')
-                ->paginate(25);
-       
-        return view('admin.kategori.index', compact('kategori'));
+
+        $transaksi = Transaksi::paginate(25);
+
+        return view('admin.transaksi.index', compact('transaksi'));
     }
 
     /**
@@ -31,7 +31,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('admin.kategori.create');
+        return view('admin.transaksi.create');
     }
 
     /**
@@ -46,11 +46,11 @@ class KategoriController extends Controller
         
         $requestData = $request->all();
         
-        Kategori::create($requestData);
+        Transaksi::create($requestData);
 
-        Session::flash('flash_message', 'Kategori added!');
+        Session::flash('flash_message', 'Transaksi added!');
 
-        return redirect('admin/kategori');
+        return redirect('admin/transaksi');
     }
 
     /**
@@ -62,9 +62,9 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $transaksi = Transaksi::findOrFail($id);
 
-        return view('admin.kategori.show', compact('kategori'));
+        return view('admin.transaksi.show', compact('transaksi'));
     }
 
     /**
@@ -76,9 +76,9 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $transaksi = Transaksi::findOrFail($id);
 
-        return view('admin.kategori.edit', compact('kategori'));
+        return view('admin.transaksi.edit', compact('transaksi'));
     }
 
     /**
@@ -94,12 +94,12 @@ class KategoriController extends Controller
         
         $requestData = $request->all();
         
-        $kategori = Kategori::findOrFail($id);
-        $kategori->update($requestData);
+        $transaksi = Transaksi::findOrFail($id);
+        $transaksi->update($requestData);
 
-        Session::flash('flash_message', 'Kategori updated!');
+        Session::flash('flash_message', 'Transaksi updated!');
 
-        return redirect('admin/kategori');
+        return redirect('admin/transaksi');
     }
 
     /**
@@ -111,10 +111,10 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        Kategori::destroy($id);
+        Transaksi::destroy($id);
 
-        Session::flash('flash_message', 'Kategori deleted!');
+        Session::flash('flash_message', 'Transaksi deleted!');
 
-        return redirect('admin/kategori');
+        return redirect('admin/transaksi');
     }
 }

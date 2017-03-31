@@ -23,3 +23,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('admin/buku', 'BukuController');
 Route::resource('admin/kategori', 'KategoriController');
+Route::resource('admin/detail_transaksi', 'DetailTransaksiController');
+Route::resource('admin/daftar_ulang', 'DaftarUlangController');
+Route::resource('admin/transaksi', 'TransaksiController');

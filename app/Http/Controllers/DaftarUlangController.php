@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Kategori;
+use App\DaftarUlang;
 use Illuminate\Http\Request;
 use Session;
 
-class KategoriController extends Controller
+class DaftarUlangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class KategoriController extends Controller
      */
     public function index(Request $request)
     {
-        $kategori = Kategori::where('nama','LIKE','%'.(isset($request->search)?$request->search:'').'%')
-                ->paginate(25);
-       
-        return view('admin.kategori.index', compact('kategori'));
+        $daftar_ulang = DaftarUlang::paginate(25);
+
+
+        return view('admin.daftar_ulang.index', compact('daftar_ulang'));
     }
 
     /**
@@ -31,7 +31,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('admin.kategori.create');
+        return view('admin.daftar_ulang.create');
     }
 
     /**
@@ -46,11 +46,11 @@ class KategoriController extends Controller
         
         $requestData = $request->all();
         
-        Kategori::create($requestData);
+        DaftarUlang::create($requestData);
 
-        Session::flash('flash_message', 'Kategori added!');
+        Session::flash('flash_message', 'DaftarUlang added!');
 
-        return redirect('admin/kategori');
+        return redirect('admin/daftar_ulang');
     }
 
     /**
@@ -62,9 +62,9 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $daftar_ulang = DaftarUlang::findOrFail($id);
 
-        return view('admin.kategori.show', compact('kategori'));
+        return view('admin.daftar_ulang.show', compact('daftar_ulang'));
     }
 
     /**
@@ -76,9 +76,9 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $kategori = Kategori::findOrFail($id);
+        $daftar_ulang = DaftarUlang::findOrFail($id);
 
-        return view('admin.kategori.edit', compact('kategori'));
+        return view('admin.daftar_ulang.edit', compact('daftar_ulang'));
     }
 
     /**
@@ -94,12 +94,12 @@ class KategoriController extends Controller
         
         $requestData = $request->all();
         
-        $kategori = Kategori::findOrFail($id);
-        $kategori->update($requestData);
+        $daftar_ulang = DaftarUlang::findOrFail($id);
+        $daftar_ulang->update($requestData);
 
-        Session::flash('flash_message', 'Kategori updated!');
+        Session::flash('flash_message', 'DaftarUlang updated!');
 
-        return redirect('admin/kategori');
+        return redirect('admin/daftar_ulang');
     }
 
     /**
@@ -111,10 +111,10 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        Kategori::destroy($id);
+        DaftarUlang::destroy($id);
 
-        Session::flash('flash_message', 'Kategori deleted!');
+        Session::flash('flash_message', 'DaftarUlang deleted!');
 
-        return redirect('admin/kategori');
+        return redirect('admin/daftar_ulang');
     }
 }
