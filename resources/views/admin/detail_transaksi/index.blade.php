@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
-
             <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Detail_transaksi</div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title" align="center"> Detail_transaksi</h2>
+                    </div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/detail_transaksi/create') }}" class="btn btn-success btn-sm" title="Add New detail_transaksi">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New

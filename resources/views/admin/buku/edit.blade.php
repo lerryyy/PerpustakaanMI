@@ -4,8 +4,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Edit buku #{{ $buku->id }}</div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title" align="center"> Edit buku #{{ $buku->id }}</h2>
+                    </div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/buku') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />

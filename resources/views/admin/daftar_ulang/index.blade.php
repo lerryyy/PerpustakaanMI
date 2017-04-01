@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
-
             <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Daftar_ulang</div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title" align="center"> Daftar Ulang</h2>
+                    </div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/daftar_ulang/create') }}" class="btn btn-success btn-sm" title="Add New daftar_ulang">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New

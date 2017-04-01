@@ -4,8 +4,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Buku</div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h2 class="panel-title" align="center"> Buku</h2>
+                    </div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/buku/create') }}" class="btn btn-success btn-sm" title="Add New buku">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New

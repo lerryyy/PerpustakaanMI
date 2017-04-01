@@ -27,31 +27,44 @@
 						</a>
 						<ul class="nav nav-children">
 							<li>
-								<a href="{{url('/admin/configuration')}}">
-									Configuration
+								<a href="{{url('/admin/buku')}}">
+									Buku
 								</a>
 							</li>
 							<li>
-								<a href="{{url('/admin/type')}}">
-									Type
+								<a href="{{url('/admin/anggota')}}">
+									Anggota
 								</a>
 							</li>
 							<li>
-								<a href="{{url('/admin/post')}}">
-									Post
+								<a href="{{url('/admin/transaksi')}}">
+									Transaksi
 								</a>
 							</li>
 							<li>
-								<a href="{{url('/admin/comment')}}">
-									Comment
-								</a>
-							</li>
-							<li>
-								<a href="{{url('/admin/category')}}">
-									Category
+								<a href="{{url('/admin/detail_transaksi')}}">
+									Detail Transaksi
 								</a>
 							</li>
 						</ul>
+					</li>
+					<li>
+						<a href="{{url('admin/kategori')}}">
+							<i class="fa fa-tasks" aria-hidden="true"></i>
+							<span>Kategori</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{url('admin/daftar_ulang')}}">
+							<i class="fa fa-sign-in" aria-hidden="true"></i>
+							<span>Daftar Ulang</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{url('admin/statistik_pengunjung')}}">
+							<i class="fa fa-list-alt" aria-hidden="true"></i>
+							<span>Statistik Pengunjung</span>
+						</a>
 					</li>
 					{{--<li class="nav-parent">
 						<a>
