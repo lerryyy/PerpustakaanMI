@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use App\Buku;
 use App\Kategori;
 use Illuminate\Http\Request;
@@ -50,12 +51,32 @@ class BukuController extends Controller
     {
         
         $requestData = $request->all();
-        
-        Buku::create($requestData);
 
-        Session::flash('flash_message', 'Buku added!');
+       try{
+            DB::beginTransaction();
 
-        return redirect('admin/buku');
+            $buku=Buku::create($requestData);
+
+            $path=null;
+
+            if( $request->hasFile('foto')) {
+                $ext=File::extension($request->file('foto')->getClientOriginalName());
+                $path = $request->foto->storeAs('scan_buku', $buku->id.'.'.$ext,'local_public');
+            }
+            if($path!=null){
+                $buku->foto=$path;
+                $buku->save();
+            }
+
+
+            DB::commit();
+
+            Session::flash('flash_message', 'Buku added!');
+            }catch(Exception $e){
+            DB::rollback();
+        }
+
+            return redirect('admin/buku');
     }
 
     /**

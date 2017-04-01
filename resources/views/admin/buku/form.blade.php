@@ -40,12 +40,6 @@
         {!! Form::text('isbn_buku', null, ['class' => 'form-control']) !!}
         {!! $errors->first('isbn_buku', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('foto') ? 'has-error' : ''}}">
-    {!! Form::label('foto', 'Foto', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-6">
-        {!! Form::text('foto', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('foto', '<p class="help-block">:message</p>') !!}
-    </div>
 </div><div class="form-group {{ $errors->has('kelas_rak') ? 'has-error' : ''}}">
     {!! Form::label('kelas_rak', 'Kelas Rak', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
@@ -63,6 +57,46 @@
     <div class="col-md-6">
         {!! Form::select('kategori_id',$kategori, null, ['class' => 'form-control']) !!}
         {!! $errors->first('kategori_id',$kategori, '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+
+
+<div class="form-group {{ $errors->has('foto') ? 'has-error' : ''}}">
+    {!! Form::label('foto', 'File Scan Buku', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::file('foto', null, ['class' => 'form-control']) !!}
+        <br \>
+        <div id="image-holder"> </div>
+
+       
+        <script type="text/javascript">
+            $("#foto").on('change', function () {
+
+                if (typeof (FileReader) != "undefined") {
+
+                    var image_holder = $("#image-holder");
+                    image_holder.empty();
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("<img />", {
+                            "src": e.target.result,
+                            "class": "thumb-image",
+                            "width":300,
+                        }).appendTo(image_holder);
+
+                    }
+                    image_holder.show();
+                    reader.readAsDataURL($(this)[0].files[0]);
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+
+            });
+        </script>
+
+        {!! $errors->first('foto', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 
