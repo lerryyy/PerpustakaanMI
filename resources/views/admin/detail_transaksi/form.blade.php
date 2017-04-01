@@ -5,10 +5,10 @@
         {!! $errors->first('kondisi_buku', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('buku_id') ? 'has-error' : ''}}">
-    {!! Form::label('buku_id', 'Buku Id', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('buku_id', 'Buku', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::number('buku_id', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('buku_id', '<p class="help-block">:message</p>') !!}
+        {!! Form::select('buku_id', $buku, null, ['class' => 'form-control']) !!}
+        {!! $errors->first('buku_id', $buku, '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('transaksi_id') ? 'has-error' : ''}}">
     {!! Form::label('transaksi_id', 'Transaksi Id', ['class' => 'col-md-4 control-label']) !!}

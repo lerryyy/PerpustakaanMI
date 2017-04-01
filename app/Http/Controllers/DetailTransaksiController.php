@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Buku;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -31,7 +32,9 @@ class DetailTransaksiController extends Controller
      */
     public function create()
     {
-        return view('admin.detail_transaksi.create');
+        $buku = Buku::pluck('judul_buku','id');
+
+        return view('admin.detail_transaksi.create', compact('buku'));
     }
 
     /**
@@ -77,8 +80,9 @@ class DetailTransaksiController extends Controller
     public function edit($id)
     {
         $detail_transaksi = DetailTransaksi::findOrFail($id);
+        $buku = Buku::pluck('judul_buku','id');
 
-        return view('admin.detail_transaksi.edit', compact('detail_transaksi'));
+        return view('admin.detail_transaksi.edit', compact('detail_transaksi','buku'));
     }
 
     /**
