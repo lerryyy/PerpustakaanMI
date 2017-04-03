@@ -1,13 +1,15 @@
 <!-- start: header -->
 <header class="header">
                 <div class="logo-container">
-                    <a href="../" class="logo">
-                        <img src="{{asset('assets/admin/images/logo.jpg')}}" height="40" alt="Porto Admin" />
-                    </a>
+                    <div class="logo">
+                        <img src="{{asset('assets/admin/images/logo.jpg')}}" height="45" width="260" />
+                    </div>
                     <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
                         <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
                     </div>
                 </div>
+
+                <span class="separator"></span>
             
                 <!-- start: search & user box -->
                 <div class="header-right">
