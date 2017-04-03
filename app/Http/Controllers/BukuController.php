@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use App\Buku;
 use App\Kategori;
 use Illuminate\Http\Request;
@@ -121,12 +122,32 @@ class BukuController extends Controller
         
         $requestData = $request->all();
         
-        $buku = Buku::findOrFail($id);
-        $buku->update($requestData);
+        try{
+            DB::beginTransaction();
 
-        Session::flash('flash_message', 'Buku updated!');
+           $buku = Buku::where('id',$id)->firstOrFail();
+            $buku->update($requestData);
 
-        return redirect('admin/buku');
+            $path=null;
+
+            if( $request->hasFile('foto')) {
+                $ext=File::extension($request->file('foto')->getClientOriginalName());
+                $path = $request->foto->storeAs('scan_buku', $buku->id.'.'.$ext,'local_public');
+            }
+            if($path!=null){
+                $buku->foto=$path;
+                $buku->save();
+            }
+
+
+            DB::commit();
+
+            Session::flash('flash_message', 'Buku added!');
+            }catch(Exception $e){
+            DB::rollback();
+        }
+
+            return redirect('admin/buku');
     }
 
     /**
@@ -137,11 +158,18 @@ class BukuController extends Controller
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
-    {
-        Buku::destroy($id);
+    { 
+        try{
 
+        $buku=Buku::where('id',$id);
+        File::delete(public_path().'\\'.str_replace("/","\\",$buku->first()->foto));
+        $buku->delete();
         Session::flash('flash_message', 'Buku deleted!');
 
         return redirect('admin/buku');
+
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
     }
 }
