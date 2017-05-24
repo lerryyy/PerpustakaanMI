@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'github' => [
+        'client_id' => '3',
+        'client_secret' => 'vkHIOjl5ez1LW9FGU7IRsIhjtHB2pQw9pbIXLfPW',
+        'redirect' => 'http://sia.politanisamarinda.ac.id/',
+    ],
+
 ];
