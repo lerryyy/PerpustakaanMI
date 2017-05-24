@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+    
         Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
@@ -231,7 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
     ],
 
 ];
