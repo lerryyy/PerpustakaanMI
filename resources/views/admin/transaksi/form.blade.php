@@ -5,7 +5,27 @@
 <script type="text/javascript">
 
     $( function() {
-        $( "#tanggal_pinjam" ).datepicker({
+        $( "#tanggal_pinjam").datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true
+        });
+    } );
+</script>
+
+<script type="text/javascript">
+
+    $( function() {
+        $( "#tanggal_deadline").datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true
+        });
+    } );
+</script>
+
+<script type="text/javascript">
+
+    $( function() {
+        $( "#tanggal_kembali").datepicker({
             format: "yyyy-mm-dd",
             autoclose: true
         });
@@ -22,13 +42,13 @@
 </div><div class="form-group {{ $errors->has('tanggal_kembali') ? 'has-error' : ''}}">
     {!! Form::label('tanggal_kembali', 'Tanggal Kembali', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::date('tanggal_kembali', null, ['class' => 'form-control']) !!}
+        {!! Form::text('tanggal_kembali', null, ['required'=>'required','class' => 'form-control','placeholder'=>'Tanggal-Bulan-Hari']) !!}
         {!! $errors->first('tanggal_kembali', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('tanggal_deadline') ? 'has-error' : ''}}">
     {!! Form::label('tanggal_deadline', 'Tanggal Deadline', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::date('tanggal_deadline', null, ['class' => 'form-control']) !!}
+        {!! Form::text('tanggal_deadline', null, ['required'=>'required','class' => 'form-control','placeholder'=>'Tanggal-Bulan-Hari']) !!}
         {!! $errors->first('tanggal_deadline', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('denda') ? 'has-error' : ''}}">
