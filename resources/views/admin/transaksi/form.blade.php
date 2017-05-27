@@ -1,7 +1,22 @@
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ 
+
+<script type="text/javascript">
+
+    $( function() {
+        $( "#tanggal_pinjam" ).datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true
+        });
+    } );
+</script>
+
+
 <div class="form-group {{ $errors->has('tanggal_pinjam') ? 'has-error' : ''}}">
     {!! Form::label('tanggal_pinjam', 'Tanggal Pinjam', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::date('tanggal_pinjam', null, ['class' => 'form-control']) !!}
+        {!! Form::text('tanggal_pinjam', null, ['required'=>'required','class' => 'form-control','placeholder'=>'Tanggal-Bulan-Hari']) !!}
         {!! $errors->first('tanggal_pinjam', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('tanggal_kembali') ? 'has-error' : ''}}">
