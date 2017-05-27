@@ -54,19 +54,19 @@
 </div><div class="form-group {{ $errors->has('denda') ? 'has-error' : ''}}">
     {!! Form::label('denda', 'Denda', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::number('denda', null, ['class' => 'form-control']) !!}
+        {!! Form::number('denda', null, ['class' => 'form-control','placeholder'=>'Masukkan Denda']) !!}
         {!! $errors->first('denda', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('keterangan') ? 'has-error' : ''}}">
     {!! Form::label('keterangan', 'Keterangan', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('keterangan', null, ['class' => 'form-control']) !!}
+        {!! Form::text('keterangan', null, ['class' => 'form-control','placeholder'=>'Masukkan Keterangan']) !!}
         {!! $errors->first('keterangan', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('user_id') ? 'has-error' : ''}}">
     {!! Form::label('user_id', 'User Id', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
+        {!! Form::number('user_id', null, ['class' => 'form-control','placeholder'=>'Masukkan User ID']) !!}
         {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

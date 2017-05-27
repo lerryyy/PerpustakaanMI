@@ -1,61 +1,61 @@
 <div class="form-group {{ $errors->has('barcode') ? 'has-error' : ''}}">
     {!! Form::label('barcode', 'Barcode', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('barcode', null, ['class' => 'form-control']) !!}
+        {!! Form::text('barcode', null, ['class' => 'form-control','placeholder'=>'Masukkan Barcode']) !!}
         {!! $errors->first('barcode', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('judul_buku') ? 'has-error' : ''}}">
     {!! Form::label('judul_buku', 'Judul Buku', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('judul_buku', null, ['class' => 'form-control']) !!}
+        {!! Form::text('judul_buku', null, ['class' => 'form-control','placeholder'=>'Masukkan Judul Buku']) !!}
         {!! $errors->first('judul_buku', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('penulis') ? 'has-error' : ''}}">
     {!! Form::label('penulis', 'Penulis', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('penulis', null, ['class' => 'form-control']) !!}
+        {!! Form::text('penulis', null, ['class' => 'form-control','placeholder'=>'Masukkan Penulis']) !!}
         {!! $errors->first('penulis', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('penerbit') ? 'has-error' : ''}}">
     {!! Form::label('penerbit', 'Penerbit', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('penerbit', null, ['class' => 'form-control']) !!}
+        {!! Form::text('penerbit', null, ['class' => 'form-control','placeholder'=>'Masukkan Penerbit']) !!}
         {!! $errors->first('penerbit', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('tahun_terbit') ? 'has-error' : ''}}">
     {!! Form::label('tahun_terbit', 'Tahun Terbit', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('tahun_terbit', null, ['class' => 'form-control']) !!}
+        {!! Form::text('tahun_terbit', null, ['class' => 'form-control','placeholder'=>'Masukkan Tahun Terbit']) !!}
         {!! $errors->first('tahun_terbit', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('tahun_masuk') ? 'has-error' : ''}}">
     {!! Form::label('tahun_masuk', 'Tahun Masuk', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('tahun_masuk', null, ['class' => 'form-control']) !!}
+        {!! Form::text('tahun_masuk', null, ['class' => 'form-control','placeholder'=>'Masukkan Tahun Masuk']) !!}
         {!! $errors->first('tahun_masuk', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('isbn_buku') ? 'has-error' : ''}}">
     {!! Form::label('isbn_buku', 'Isbn Buku', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('isbn_buku', null, ['class' => 'form-control']) !!}
+        {!! Form::text('isbn_buku', null, ['class' => 'form-control','placeholder'=>'Masukkan ISBN Buku']) !!}
         {!! $errors->first('isbn_buku', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('kelas_rak') ? 'has-error' : ''}}">
     {!! Form::label('kelas_rak', 'Kelas Rak', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('kelas_rak', null, ['class' => 'form-control']) !!}
+        {!! Form::text('kelas_rak', null, ['class' => 'form-control','placeholder'=>'Masukkan Kelas Rak']) !!}
         {!! $errors->first('kelas_rak', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('user_id') ? 'has-error' : ''}}">
     {!! Form::label('user_id', 'User Id', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
+        {!! Form::number('user_id', null, ['class' => 'form-control','placeholder'=>'Masukkan User ID']) !!}
         {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('kategori_id') ? 'has-error' : ''}}">
     {!! Form::label('kategori_id', 'Kategori', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('kategori_id',$kategori, null, ['class' => 'form-control']) !!}
+        {!! Form::select('kategori_id',$kategori, null, ['class' => 'form-control','placeholder'=>'Masukkan Kategori ID']) !!}
         {!! $errors->first('kategori_id',$kategori, '<p class="help-block">:message</p>') !!}
     </div>
 </div>
@@ -65,7 +65,7 @@
 <div class="form-group {{ $errors->has('foto') ? 'has-error' : ''}}">
     {!! Form::label('foto', 'File Scan Buku', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::file('foto', null, ['class' => 'form-control']) !!}
+        {!! Form::file('foto', null, ['class' => 'form-control','placeholder'=>'Masukkan Foto']) !!}
         <br \>
         <div id="image-holder"> </div>
 
