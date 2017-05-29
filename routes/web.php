@@ -19,7 +19,7 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('admin/buku', 'BukuController');
 Route::resource('admin/kategori', 'KategoriController');

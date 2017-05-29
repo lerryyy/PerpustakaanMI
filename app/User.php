@@ -1,23 +1,22 @@
 <?php
 
 namespace App;
+
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    use HasApiTokens,Notifiable;
 
-    use HasApiTokens, Notifiable;
-    
-    protected $connection = 'mysqlpolitani';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'id','name', 'email','access_token','admin_perpustakaan','dosen','staff','mahasiswa'// 'password',
     ];
 
     /**
@@ -26,6 +25,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'access_token'//'remember_token',//'password',
     ];
 }

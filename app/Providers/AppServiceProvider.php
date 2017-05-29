@@ -14,6 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        view()->composer('*', function ($view) {
+
+            $current_route_path = \Request::route()->uri();
+            $view->with('current_route_path', $current_route_path);
+
+        });
          Schema::defaultStringLength(191);
     }
 

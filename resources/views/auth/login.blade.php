@@ -1,257 +1,68 @@
-assets/<!DOCTYPE html>
-<html>
-	<head>
+@extends('layouts.app-full-center')
 
-		<!-- Basic -->
-		<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">	
+@section('content')
+	@if(Session::has('message'))
+		<div class="alert alert-info center">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+			<strong>{!! Session::get('message')  !!} </strong>
+		</div>
+	@endif
 
-		<title>Login</title>	
+	<section class="body-sign">
+		<div class="center-sign">
+			<a href="/" class="logo pull-left">
+				<img src="assets/images/logo.png" height="54" alt="Porto Admin" />
+			</a>
 
-		<meta name="keywords" content="HTML5 Template" />
-		<meta name="description" content="Porto - Responsive HTML5 Template">
-		<meta name="author" content="okler.net">
-
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
-		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-
-		<!-- Mobile Metas -->
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<!-- Web Fonts  -->
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
-
-		<!-- Vendor CSS -->
-		<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css">
-		<link rel="stylesheet" href="assets/vendor/simple-line-icons/css/simple-line-icons.css">
-		<link rel="stylesheet" href="assets/vendor/owl.carousel/assets/owl.carousel.min.css">
-		<link rel="stylesheet" href="assets/vendor/owl.carousel/assets/owl.theme.default.min.css">
-		<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
-
-		<!-- Theme CSS -->
-		<link rel="stylesheet" href="assets/css/theme.css">
-		<link rel="stylesheet" href="assets/css/theme-elements.css">
-		<link rel="stylesheet" href="assets/css/theme-blog.css">
-		<link rel="stylesheet" href="assets/css/theme-shop.css">
-		<link rel="stylesheet" href="assets/css/theme-animate.css">
-
-		<!-- Current Page CSS -->
-		<link rel="stylesheet" href="assets/vendor/rs-plugin/css/settings.css" media="screen">
-		<link rel="stylesheet" href="assets/vendor/rs-plugin/css/layers.css" media="screen">
-		<link rel="stylesheet" href="assets/vendor/rs-plugin/css/navigation.css" media="screen">
-		<link rel="stylesheet" href="assets/vendor/circle-flip-slideshow/css/component.css" media="screen">
-
-		<!-- Skin CSS -->
-		<link rel="stylesheet" href="assets/css/skins/default.css">
-
-		<!-- Theme Custom CSS -->
-		<link rel="stylesheet" href="assets/css/custom.css">
-
-		<!-- Head Libs -->
-		<script src="assets/vendor/modernizr/modernizr.js"></script>
-
-	</head>
-	<body>
-		<div class="body">
-			<header id="header" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 57, "stickySetTop": "-57px", "stickyChangeLogo": true}'>
-				<div class="header-body">
-					<div class="header-container container">
-						<div class="header-row">
-							<div class="header-column">
-								<div class="header-logo">
-									<a href="index.html">
-										<img alt="Porto" width="100" height="100" data-sticky-width="82" data-sticky-height="40" data-sticky-top="33" src="img/updates.png">
-									</a>
-								</div>
-							</div>
-							<div class="header-column">
-								<div class="header-row">
-									
-									<nav class="header-nav-top">
-										<ul class="nav nav-pills">
-											<li class="hidden-xs">
-												<a href="page-login.html">Login</a>
-											</li>
-										</ul>
-									</nav>
-								</div>
-								<div class="header-row">
-									<div class="header-nav">
-										
-										<div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
-											<nav>
-												<ul class="nav nav-pills" id="mainNav">
-													<li>
-														<a href="index.html">Beranda</a>
-													</li>
-													<li>
-														<a href="index.html">Katalog Buku</a>
-													</li>
-													<li>
-														<a href="index.html">Tentang Kami</a>
-													</li>
-													
-												</ul>
-											</nav>
-										</div>
-									</div>
-								</div>
-							</div>
+			<div class="panel panel-sign">
+				<div class="panel-title-sign mt-xl text-right">
+					<h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i> Sign In</h2>
+				</div>
+				<div class="panel-body">
+					{!! Form::open(['url' =>  url('/login') , 'class' => 'form-horizontal', 'files' => true,'role'=>'form']) !!}
+					<div class="form-group mb-lg">
+						<label>Email</label>
+						<div class="input-group input-group-icon">
+							{!! Form::text('email', null, ['class' => 'form-control input-lg']) !!}
+							<span class="input-group-addon">
+										<span class="icon icon-lg">
+											<i class="fa fa-user"></i>
+										</span>
+									</span>
 						</div>
+						{!! $errors->first('email', '<div class="alert alert-danger">:message</div>') !!}
 					</div>
-				</div>
-			</header>
 
-			<div role="main" class="main">
-				<div class="slider-container rev_slider_wrapper" style="height: 700px;">
-					<div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options='{"gridwidth": 800, "gridheight": 200}'>
-						<ul>
-							<li data-transition="fade">
-								<img src="#"  
-									alt=""
-									data-bgposition="center center" 
-									data-bgfit="cover" 
-									data-bgrepeat="no-repeat" 
-									class="rev-slidebg">
-								
-								
-							</li>
-
-							
-						</ul>
+					<div class="form-group mb-lg">
+						<div class="clearfix">
+							<label class="pull-left">Password</label>
+						</div>
+						<div class="input-group input-group-icon">
+							{!! Form::password('password', ['class' => 'form-control input-lg']) !!}
+							<span class="input-group-addon">
+										<span class="icon icon-lg">
+											<i class="fa fa-lock"></i>
+										</span>
+									</span>
+						</div>
+						{!! $errors->first('password', '<div class="alert alert-danger">:message</div>') !!}
 					</div>
-				</div>
-				
-
-				<div class="container">
 
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-sm-4">
 
-							<div class="featured-boxes center">
-								<div class="row">
-								<div class="col-md-4">
-								</div>
-								
-									<div class="col-md-4">
-										<div class="featured-box featured-box-primary align-left mt-xlg">
-											<div class="box-content">
-												<h4 class="heading-primary text-uppercase mb-md" style="text-align:center">Login</h4>
-												<form action="/" id="frmSignIn" method="post">
-													<div class="row">
-														<div class="form-group">
-															<div class="col-md-12">
-																
-																<input type="text" value="" class="form-control input-lg" placeholder="Username" style="text-align:center">
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														<div class="form-group">
-															<div class="col-md-12">
-																
-																
-																<input type="password" value="" class="form-control input-lg" placeholder="Password" style="text-align:center">
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														
-														<div class="col-md-8">
-															<input type="submit" value="Login" class="btn btn-primary btn-lg pull-right mb-xl" data-loading-text="Loading...">
-														</div>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div>
-									
-								</div>
-
-							</div>
+						</div>
+						<div class=" col-sm-8 text-right">
+							{!! Form::submit('Sign In', ['class' => 'btn btn-primary hidden-xs']) !!}
+							{!! Form::submit('Sign In', ['class' => 'btn btn-primary btn-block btn-lg visible-xs mt-lg']) !!}
 						</div>
 					</div>
 
+					{!! Form::close() !!}
 				</div>
-				
-				
-				
-				
 			</div>
- 
-			<footer id="footer">
-				
-				<div class="footer-copyright">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-1">
-								<a href="index.html" class="logo">
-									<img alt="Porto Website Template" class="img-responsive" src="img/logo-footer.png">
-								</a>
-							</div>
-							<div class="col-md-7">
-								<p>© Copyright 2015. All Rights Reserved.</p>
-							</div>
-							<div class="col-md-4">
-								<nav id="sub-menu">
-									<ul>
-										<li><a href="#">FAQ's</a></li>
-										<li><a href="#">Sitemap</a></li>
-										<li><a href="#">Contact</a></li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
+
+			<p class="text-center text-muted mt-md mb-md">&copy; BRITECH 2016. All Rights Reserved.</p>
 		</div>
-
-		<!-- Vendor -->
-		<script src="assets/vendor/jquery/jquery.js"></script>
-		<script src="assets/vendor/jquery.appear/jquery.appear.js"></script>
-		<script src="assets/vendor/jquery.easing/jquery.easing.js"></script>
-		<script src="assets/vendor/jquery-cookie/jquery-cookie.js"></script>
-		<script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
-		<script src="assets/vendor/common/common.js"></script>
-		<script src="assets/vendor/jquery.validation/jquery.validation.js"></script>
-		<script src="assets/vendor/jquery.stellar/jquery.stellar.js"></script>
-		<script src="assets/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
-		<script src="assets/vendor/jquery.gmap/jquery.gmap.js"></script>
-		<script src="assets/vendor/jquery.lazyload/jquery.lazyload.js"></script>
-		<script src="assets/vendor/isotope/jquery.isotope.js"></script>
-		<script src="assets/vendor/owl.carousel/owl.carousel.js"></script>
-		<script src="assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
-		<script src="assets/vendor/vide/vide.js"></script>
-		
-		<!-- Theme Base, Components and Settings -->
-		<script src="assets/js/theme.js"></script>
-		
-		<!-- Current Page Vendor and Views -->
-		<script src="assets/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-		<script src="assets/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-		<script src="assets/vendor/circle-flip-slideshow/js/jquery.flipshow.js"></script>
-		<script src="assets/js/views/view.home.js"></script>
-		
-		<!-- Theme Custom -->
-		<script src="assets/js/custom.js"></script>
-		
-		<!-- Theme Initialization Files -->
-		<script src="assets/js/theme.init.js"></script>
-
-		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-			ga('create', 'UA-12345678-1', 'auto');
-			ga('send', 'pageview');
-		</script>
-		 -->
-
-	</body>
-</html>
+	</section>
+@endsection
