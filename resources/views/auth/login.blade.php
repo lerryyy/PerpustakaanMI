@@ -11,7 +11,7 @@
 	<section class="body-sign">
 		<div class="center-sign">
 			<a href="/" class="logo pull-left">
-				<img src="assets/images/logo.png" height="54" alt="Porto Admin" />
+				<img src="assets/images/logosip.png" height="54" alt="Porto Admin" />
 			</a>
 
 			<div class="panel panel-sign">
@@ -62,7 +62,7 @@
 				</div>
 			</div>
 
-			<p class="text-center text-muted mt-md mb-md">&copy; BRITECH 2016. All Rights Reserved.</p>
+			<p class="text-center text-muted mt-md mb-md">&copy; MI PROGRAMMER 2017. All Rights Reserved.</p>
 		</div>
 	</section>
 @endsection

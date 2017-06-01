@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{{isset($title)?$title:'Aplikasi Evaluasi Dosen'}}</title>
+    <title>{{isset($title)?$title:'Sistem Informasi Perpus'}}</title>
     <meta name="keywords" content="Aplikasi Evaluasi Dosen" />
     <meta name="description" content="Sistem Informasi Aplikasi Evaluasi Dosen">
     <meta name="author" content="TIM BRITECH SAMARINDA">
