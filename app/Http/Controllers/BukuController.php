@@ -14,6 +14,15 @@ use Session;
 
 class BukuController extends Controller
 {
+
+    public function cariBuku(Request $request){
+        $buku = Buku::where('judul_buku','LIKE','%'.(isset($request->search)?$request->search:'').'%')
+            ->orwhere('penulis','LIKE','%'.(isset($request->search)?$request->search:'').'%')
+            ->orwhere('penerbit','LIKE','%'.(isset($request->search)?$request->search:'').'%')
+            ->get();
+
+        return $buku;
+    }
     /**
      * Display a listing of the resource.
      *
