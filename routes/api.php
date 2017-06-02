@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/test-oauth2',function(){
 	return 'sukses';
 })->middleware('auth:api');
+
+Route::get('/cari_buku','BukuController@cariBuku');
