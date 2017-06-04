@@ -217,13 +217,14 @@
 
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>{{isset($title)?$title:'Aplikasi Evaluasi Dosen POLITANI'}}</h2>
+                <h2>{{isset($title)?$title:'Sistem Informasi Perpustakaan'}}</h2>
 
                 <div class="right-wrapper pull-right">
                     <ol class="breadcrumbs">
                         <li>
                             <a href="index.html">
                                 <i class="fa fa-home"></i>
+                            
                             </a>
                         </li>
                         <li><span>Dashboard</span></li>
@@ -243,8 +244,10 @@
                 </div>
             @endif
 
-            <!-- start: page -->
-            @yield('content')
+            <!-- start: page --> 
+         @yield('content')
+          <a href="/admin/buku">Anda admin ? Klik here</a>
+
             <!-- end: page -->
         </section>
     </div>

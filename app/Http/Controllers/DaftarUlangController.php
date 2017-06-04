@@ -8,9 +8,24 @@ use App\Http\Controllers\Controller;
 use App\DaftarUlang;
 use Illuminate\Http\Request;
 use Session;
+use Auth;
 
 class DaftarUlangController extends Controller
 {
+
+
+
+
+    public function __construct() {
+        $this->middleware(function ($request, $next) {
+            if (Auth::user()->admin_perpustakaan!=1) {
+                return redirect('/home');
+            }
+
+            return $next($request);
+        });
+
+    }
     /**
      * Display a listing of the resource.
      *
