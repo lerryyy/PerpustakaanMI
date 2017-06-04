@@ -32,7 +32,7 @@
                             </figure>
                             <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
                                 <span class="name">{{isset(Auth::user()->name)?Auth::user()->name:''}}</span>
-                                <span class="role">Admin Perpustakaan</span>
+                                <span class="role">Admin</span>
                             </div>
             
                             <i class="fa custom-caret"></i>
@@ -42,18 +42,13 @@
                             <ul class="list-unstyled">
                                 <li class="divider"></li>
                                 <li>
-                                     <a role="menuitem" tabindex="-1" href="{{url('/profil/biodata')}}"><i class="fa fa-user"></i> Profil </a>
+                                    <a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> My Profile</a>
                                 </li>
                                 <li>
-                                   <a role="menuitem" tabindex="-1" href="{{url('/password/change')}}"><i class="fa fa-key"></i> Ganti Password </a>
+                                    <a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Lock Screen</a>
                                 </li>
                                 <li>
-                                   <a role="menuitem" tabindex="-1" href="{{ url('/logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                <i class="fa fa-power-off"></i> Logout</a>
-                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
+                                    <a role="menuitem" tabindex="-1" href="pages-signin.html"><i class="fa fa-power-off"></i> Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,4 +57,3 @@
                 <!-- end: search & user box -->
             </header>
 <!-- end: header -->
- 

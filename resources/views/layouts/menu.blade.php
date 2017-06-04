@@ -4,8 +4,37 @@
             <i class="fa fa-home" aria-hidden="true"></i>
             <span>Home</span>
         </a>
+            
     </li>
+</ul>
 
+
+
+
+<div class="nano">
+        <div class="nano-content">
+            <nav id="menu" class="nav-main" role="navigation">
+                <ul class="nav nav-main">
+                   
+
+                     <li class="nav-parent nav-active nav-expanded">
+                                <a>
+                                    <i class="fa fa-copy" aria-hidden="true"></i>
+                                    <span>Daftar Buku</span>
+                                </a>
+                                <ul class="nav nav-children">
+                                    <li class="nav-active'">
+                                        <a href="{{url('/user/buku')}}">
+                                            Buku
+                                        </a>
+                                    </li>
+                                </ul>
+                      </li>
+                </ul>
+            </nav>
+
+            <hr class="separator" />
+        </div>
     @if(Auth::user()->admin_evaluasi_dosen)
     <li class="nav-parent {{ stripos($current_route_path,'admin')!==false ? 'nav-active nav-expanded' : '' }}">
         <a>
