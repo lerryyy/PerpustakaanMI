@@ -11,6 +11,10 @@ use App\Buku;
 use App\Kategori;
 use Illuminate\Http\Request;
 use Session;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\AdminPerpustakaanRequest;
+use App\User;
 
 class BukuController extends Controller
 {
@@ -23,6 +27,14 @@ class BukuController extends Controller
 
         return $buku;
     }
+
+    public function __construct(Request $request, Redirector $redirect) {
+        $admin_perpustakaan=User::find(Auth::id());
+        if ($admin_perpustakaan->name!='aaa') {
+            $redirect->to('/home')->send();
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *

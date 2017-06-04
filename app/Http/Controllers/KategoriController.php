@@ -24,6 +24,7 @@ class KategoriController extends Controller
         return view('admin.kategori.index', compact('kategori'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

@@ -43,3 +43,10 @@ Route::get('/login/siapolitani/{username}/{password}', function ($username,$pass
 return json_decode((string) $response->getBody(), true);
 
 });
+
+Route::get('/test',function(Illuminate\Http\Request $request){
+    return $request->user()->admin_perpustakaan;
+});
+
+
+//Route::get('login/coba', 'LoginController@isAuthorized');

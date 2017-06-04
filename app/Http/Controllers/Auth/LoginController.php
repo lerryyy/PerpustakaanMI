@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Socialite;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -38,10 +39,13 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct()
-    {
+    {   
+     
         $this->middleware('guest', ['except' => 'logout']);
         $this->http = new Client;
+      
     }
+
 
     /**
      * Attempt to log the user into the application.
@@ -107,8 +111,8 @@ class LoginController extends Controller
         $user_array['role_staff']=0;
 
         //Simpan Role
-        if(in_array('admin_evaluasi_dosen',$role_array)){
-            $user_array['role_admin_evaluasi_dosen']=1;
+        if(in_array('admin_perpustakaan',$role_array)){
+            $user_array['role_admin_perpustakaan']=1;
         }
         if(in_array('mahasiswa',$role_array)){
             $user_array['role_mahasiswa']=1;
