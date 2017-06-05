@@ -27,4 +27,11 @@ class User extends Authenticatable
     protected $hidden = [
         'access_token'//'remember_token',//'password',
     ];
+
+    public function adminPerpustakaan(){
+        if($this->admin_perpustakaan===1)
+            return true;
+        else
+            return false;
+    }
 }

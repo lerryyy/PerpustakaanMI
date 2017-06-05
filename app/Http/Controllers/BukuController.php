@@ -12,12 +12,21 @@ use App\Kategori;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\AdminPerpustakaanRequest;
-use App\User;
+use Auth;
 
 class BukuController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware(function ($request, $next) {
+            if (Auth::user()->admin_perpustakaan!=1) {
+                return redirect('/home');
+            }
+
+            return $next($request);
+        });
+
+    }
 
     public function cariBuku(Request $request){
         $buku = Buku::where('judul_buku','LIKE','%'.(isset($request->search)?$request->search:'').'%')
@@ -26,13 +35,6 @@ class BukuController extends Controller
             ->get();
 
         return $buku;
-    }
-
-    public function __construct(Request $request, Redirector $redirect) {
-        $admin_perpustakaan=User::find(Auth::id());
-        if ($admin_perpustakaan->name!='aaa') {
-            $redirect->to('/home')->send();
-        }
     }
 
     /**
